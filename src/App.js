@@ -1,16 +1,27 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter,Route,Routes } from "react-router-dom";
+import { NavMenu } from './components/NavMenu';
+import SiginIn from './components/SiginIn';
+import SiginUp from './components/SiginUp';
+import MenuItem from './components/MenuItem';
+import Home from './components/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello </p>
-        <h1>World</h1>
-        <p>lets start 1</p>
-      </header>
-    </div>
+    <BrowserRouter>
+    <div className="App"> 
+      <NavMenu/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/SiginIn" element={<SiginIn/>} />
+        <Route  path="/SiginUp" element={<SiginUp/>} />
+        <Route  path="/MenuItem" element={<MenuItem/>} />
+        </Routes>
+        </div>
+        </BrowserRouter>
+ 
   );
 }
 
